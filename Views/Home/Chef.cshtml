@@ -1,0 +1,27 @@
+@{
+    ViewData["Title"] = "Chefs";
+}
+
+@model IEnumerable<Chefs.Models.Chef>
+
+<h1>Lista de Chefs</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Edad</th>
+            <th>Número de Platos</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var chef in Model)
+        {
+            <tr>
+                <td>@chef.Nombre</td>
+                <td>@(DateTime.Today.Year - chef.FechaNacimiento.Year)</td>
+                <td>@chef.Platos.Count</td>
+            </tr>
+        }
+    </tbody>
+</table>
